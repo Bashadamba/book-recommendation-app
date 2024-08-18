@@ -1,0 +1,357 @@
+body {
+    font-family: 'Geist Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1001;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.button {
+    color: #000;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    background: linear-gradient(to right, #000 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.button:not(.glowing-button):hover {
+    color: white;
+    background-position: left bottom;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.search-box {
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 0 0 2px #000;
+}
+
+.search-box input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    padding: 5px;
+    font-family: 'Geist Sans', sans-serif;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+.search-box button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#recommendations {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+footer {
+    margin-top: auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    color: #666;
+    font-size: 14px;
+}
+
+.background-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Glowing Button Styles */
+.glowing-button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.glowing-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+        #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000);
+    z-index: -1;
+    border-radius: 22px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-size: 200% 100%;
+}
+
+.glowing-button:hover::before {
+    opacity: 1;
+    animation: animatedgradient 3s ease alternate infinite;
+}
+
+.glowing-button::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #f9f9f9;
+    border-radius: 18px;
+    z-index: -1;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.book {
+    display: flex;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: 200px;
+}
+
+.book-image-container {
+    width: 130px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.book-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.book-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.book-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book-author {
+    margin: 0 0 10px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.book-description {
+    font-size: 14px;
+    line-height: 1.4;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+#recommendations {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Popover styles */
+.popover {
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.popover::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.popover h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.popover p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.popover-form {
+    width: 100%;
+}
+
+.popover-form label {
+    font-size: 14px;
+}
+
+.popover-form input, .popover-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.popover-form button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popover-form button:hover {
+    background-color: #333;
+}
+
+.popover-form select,
+.popover-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Geist Sans', sans-serif;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.popover-form select {
+    height: 45px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M10.59 0.59L6 5.17L1.41 0.59L0 2L6 8L12 2L10.59 0.59Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 30px;
+}
+
+.popover-form select:focus,
+.popover-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.popover-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 200;
+    text-align: left;
+}

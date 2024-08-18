@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas class="background-effect"></canvas>
+    <header>
+        <div class="logo">BR</div>
+        <button id="feedbackButton" class="button glowing-button">Feedback</button>
+    </header>
+    <main>
+        <div class="popover" id="feedbackPopover">
+            <h4>We'd love your feedback!</h4>
+            <p>Your feedback helps us improve our recommendations.</p>
+            <form class="popover-form" id="feedbackForm">
+                <label for="feedbackCategory">Category</label>
+                <select id="feedbackCategory" required>
+                    <option value="design">Design</option>
+                    <option value="content">Content</option>
+                    <option value="usability">Usability</option>
+                </select>
+                <label for="feedbackText">Your Feedback</label>
+                <textarea id="feedbackText" rows="3" required></textarea>
+                <button type="submit" id="submitFeedback">Submit</button>
+            </form>
+        </div>
+        <h1>Find Your Next Book.</h1>
+        <p>Get personalized book recommendations from simple text prompts.</p>
+        <form id="recommendationForm">
+            <div class="search-box">
+                <input type="text" id="bookInput" placeholder="What's your favorite book?" required>
+                <button type="submit">→</button>
+            </div>
+        </form>
+        <div class="categories">
+            <button class="button" data-genre="Fiction">Fiction</button>
+            <button class="button" data-genre="Non-fiction">Non-fiction</button>
+            <button class="button" data-genre="Mystery">Mystery</button>
+            <button class="button" data-genre="Sci-Fi">Sci-Fi</button>
+        </div>
+        <div id="recommendations" style="margin-top: 20px;"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
